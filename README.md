@@ -152,6 +152,13 @@ SciPy
 
 Scikit-Learn
 
+📂 Data Availability Note
+
+The analysis was performed using the exact datasets provided in the assignment email.
+Due to GitHub file size limitations (25MB upload restriction), the original raw datasets are not included in this repository.
+
+The notebook is fully reproducible when the provided datasets are placed in the designated /data folder.
+
 👤 Author
 
 Mohit
