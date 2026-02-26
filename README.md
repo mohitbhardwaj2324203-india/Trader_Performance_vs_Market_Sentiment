@@ -1,4 +1,6 @@
 **Regime-Based Performance & Strategy Optimization**
+
+
 📌 Project Overview
 
 This project analyzes trader behavior across different market sentiment regimes (Fear, Greed, Extreme Greed, Neutral) using historical transaction data aligned with daily sentiment classification.
