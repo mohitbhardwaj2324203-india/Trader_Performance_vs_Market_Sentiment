@@ -9,7 +9,7 @@ Profitability (PnL)
 
 Win rate
 
-Leverage usage
+Risk exposure (leverage proxy)
 
 Trade frequency
 
@@ -17,12 +17,12 @@ Behavioral bias (Long/Short)
 
 Trader segmentation performance
 
-The final goal is to derive actionable trading strategy recommendations.
+The final goal is to derive actionable trading strategy recommendations based on measurable performance differences.
 
 🧩 Dataset Description
 1️⃣ Trader Dataset
 
-Contains transactional trade-level data including:
+Trade-level historical data including:
 
 Account
 
@@ -40,7 +40,7 @@ Start Position
 
 2️⃣ Sentiment Dataset
 
-Daily market sentiment classification:
+Daily Bitcoin market sentiment classification:
 
 Fear
 
@@ -55,9 +55,11 @@ Neutral
 
 Converted timestamps to daily format
 
-Merged trader data with sentiment classification
+Merged trader data with daily sentiment classification
 
 Removed unmatched sentiment dates
+
+Aggregated performance at daily trader level
 
 Created key metrics:
 
@@ -69,13 +71,13 @@ Average trade size
 
 Trade frequency
 
-Leverage proxy
+Risk exposure proxy (calculated as trade size relative to starting position, since explicit leverage was not available in the dataset)
 
 Long/Short distribution
 
 🔹 Part B — Sentiment Regime Analysis
 
-We compared performance across sentiment regimes:
+Performance was compared across sentiment regimes using:
 
 Average Daily PnL
 
@@ -83,49 +85,56 @@ Win Rate
 
 Trade Frequency
 
-Leverage Usage
+Risk Exposure
 
 Behavioral Direction Bias
 
-We further segmented traders into:
+Traders were segmented into:
 
-High vs Low Leverage
+High vs Low Risk Exposure
 
 Frequent vs Infrequent Traders
 
 📈 Key Findings
-1️⃣ Fear Regime Generates Highest Profitability
+1️⃣ Fear Regime Shows Highest Average PnL
 
-Fear periods show the highest average Daily PnL despite lower win rates, indicating larger winning trades during volatility expansion.
+Fear regimes demonstrate the highest average Daily PnL despite a relatively lower win rate.
+This suggests that while fewer trades are profitable, winning trades tend to be larger during high-volatility periods.
 
-2️⃣ Extreme Greed Increases Risk Exposure
+2️⃣ Risk Exposure Performance Varies by Regime
 
-Leverage usage peaks during Extreme Greed but profitability does not scale proportionally, suggesting overconfidence-driven risk.
+During Fear, low-risk traders outperform high-risk traders.
 
-3️⃣ Overtrading Reduces Performance
+During Greed, high-risk traders significantly outperform low-risk traders.
 
-Infrequent traders outperform frequent traders in most regimes, especially during Fear and Neutral conditions.
+This indicates that aggressive positioning is rewarded during optimistic market phases, while defensive positioning performs better during uncertain environments.
+
+3️⃣ Overtrading Reduces Profitability
+
+Infrequent traders outperform frequent traders across most regimes, particularly during Fear and Neutral conditions.
+
+This suggests that selective participation yields stronger profitability than continuous high-frequency activity.
 
 📊 Segmentation Insights
 
-Low leverage traders outperform high leverage traders during Fear regimes.
+Low risk exposure performs better during Fear regimes.
 
-High leverage performs better during Greed regimes (trend continuation).
+High risk exposure performs better during Greed regimes.
 
-Infrequent traders consistently achieve better average PnL than frequent traders.
+Infrequent traders consistently achieve higher average PnL compared to frequent traders.
 
 🎯 Strategy Recommendations
-✅ Strategy 1 — Fear Regime Discipline
+✅ Strategy 1 — Defensive Mode During Fear
 
-Increase participation during Fear regimes with controlled leverage. Focus on volatility-driven setups rather than aggressive overtrading.
+Reduce risk exposure and focus on high-conviction setups during Fear regimes to improve downside protection.
 
-✅ Strategy 2 — Greed Regime Trend Exploitation
+✅ Strategy 2 — Controlled Scaling During Greed
 
-Apply controlled leverage scaling during Greed phases for trend continuation strategies while limiting excessive exposure.
+Increase exposure selectively during Greed regimes where higher risk strategies demonstrate stronger performance.
 
-✅ Strategy 3 — Activity Optimization
+✅ Strategy 3 — Optimize Trade Frequency
 
-Adopt selective participation. Reduce trade frequency during Neutral and Extreme Greed environments to improve risk-adjusted returns.
+Adopt a selective trading model. Reduce excessive trade frequency during Neutral and Extreme Greed conditions to improve risk-adjusted returns.
 
 📊 Tools & Technologies
 
@@ -135,12 +144,13 @@ Pandas
 
 NumPy
 
-Seaborn / Matplotlib
+Matplotlib / Seaborn
 
 SciPy
 
-Scikit-Learn 
-Author
+Scikit-Learn
+
+👤 Author
 
 Mohit
 Junior Data Scientist Candidate
